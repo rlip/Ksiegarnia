@@ -1,0 +1,39 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityConfig
+ *
+ * @ORM\Table(name="config")
+ * @ORM\Entity
+ */
+class EntityConfig
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="config_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $configId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="config_key", type="string", length=50, nullable=false)
+     */
+    private $configKey;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="config_value", type="string", length=255, nullable=true)
+     */
+    private $configValue;
+
+
+}

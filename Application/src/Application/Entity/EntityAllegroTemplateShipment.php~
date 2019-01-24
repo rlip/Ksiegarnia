@@ -1,0 +1,90 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroTemplateShipment
+ *
+ * @ORM\Table(name="allegro_template_shipment")
+ * @ORM\Entity
+ */
+class EntityAllegroTemplateShipment extends \Application\Entity\EntityAbstract
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegrots_id", type="integer", precision=0, scale=0, nullable=false, unique=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegrotsId;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegrots_name", type="text", length=50, precision=0, scale=0, nullable=false, unique=false)
+     */
+    private $allegrotsName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegrots_value", type="text", length=65535, precision=0, scale=0, nullable=false, unique=false)
+     */
+    private $allegrotsValue;
+
+
+    /**
+     * Get allegrotsId
+     *
+     * @return integer
+     */
+    public function getAllegrotsId()
+    {
+        return $this->allegrotsId;
+    }
+
+    /**
+     * Set allegrotsValue
+     *
+     * @param string $allegrotsValue
+     *
+     * @return EntityAllegroTemplateShipment
+     */
+    public function setAllegrotsValue($allegrotsValue)
+    {
+        $this->allegrotsValue = $allegrotsValue;
+
+        return $this;
+    }
+
+    /**
+     * Get allegrotsValue
+     *
+     * @return string
+     */
+    public function getAllegrotsValue()
+    {
+        return $this->allegrotsValue;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAllegrotsName()
+    {
+        return $this->allegrotsName;
+    }
+
+    /**
+     * @param string $allegrotsName
+     */
+    public function setAllegrotsName($allegrotsName)
+    {
+        $this->allegrotsName = $allegrotsName;
+    }
+}
+

@@ -1,0 +1,47 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroAuctionScenario
+ *
+ * @ORM\Table(name="allegro_auction_scenario")
+ * @ORM\Entity
+ */
+class EntityAllegroAuctionScenario
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegroas_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegroasId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegroas_name", type="string", length=50, nullable=false)
+     */
+    private $allegroasName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegroas_code", type="string", length=10, nullable=false)
+     */
+    private $allegroasCode;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="allegroas_is_active", type="boolean", nullable=false)
+     */
+    private $allegroasIsActive;
+
+
+}
+

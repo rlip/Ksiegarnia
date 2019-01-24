@@ -1,0 +1,195 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityProduct
+ *
+ * @ORM\Table(name="product", uniqueConstraints={@ORM\UniqueConstraint(name="product_bar_code_unique", columns={"product_bar_code"})}, indexes={@ORM\Index(name="product_index_lnl", columns={"product_index_lnl"}), @ORM\Index(name="product_index_azymut", columns={"product_index_azymut"}), @ORM\Index(name="product_publisher_id", columns={"product_publisher_id"}), @ORM\Index(name="product_isbn", columns={"product_isbn"}), @ORM\Index(name="product_categorya_id", columns={"product_categorya_id"}), @ORM\Index(name="product_categoryr_id", columns={"product_categoryr_id"})})
+ * @ORM\Entity
+ */
+class EntityProduct
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $productId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_isbn", type="string", length=15, nullable=true)
+     */
+    private $productIsbn;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_index_azymut", type="string", length=15, nullable=true)
+     */
+    private $productIndexAzymut;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_index_lnl", type="string", length=7, nullable=true)
+     */
+    private $productIndexLnl;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_bar_code", type="bigint", nullable=false)
+     */
+    private $productBarCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_publication_place", type="string", length=40, nullable=true)
+     */
+    private $productPublicationPlace;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_publication_year", type="integer", nullable=true)
+     */
+    private $productPublicationYear;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_language", type="string", length=150, nullable=true)
+     */
+    private $productLanguage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_author", type="string", length=255, nullable=true)
+     */
+    private $productAuthor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_price_supplier", type="decimal", precision=6, scale=2, nullable=true)
+     */
+    private $productPriceSupplier;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="product_binding_type", type="boolean", nullable=true)
+     */
+    private $productBindingType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_title", type="string", length=200, nullable=true)
+     */
+    private $productTitle;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_release_year", type="integer", nullable=true)
+     */
+    private $productReleaseYear;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_description", type="text", length=65535, nullable=true)
+     */
+    private $productDescription;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="product_length", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $productLength;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="product_width", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $productWidth;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="product_height", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $productHeight;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="product_weight", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $productWeight;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_pages", type="integer", nullable=true)
+     */
+    private $productPages;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_remote_image", type="string", length=50, nullable=true)
+     */
+    private $productRemoteImage;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="product_to_allegro", type="boolean", nullable=true)
+     */
+    private $productToAllegro;
+
+    /**
+     * @var \Application\Entity\EntityPublisher
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityPublisher")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_publisher_id", referencedColumnName="publisher_id")
+     * })
+     */
+    private $productPublisher;
+
+    /**
+     * @var \Application\Entity\EntityCategoryAllegro
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityCategoryAllegro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_categorya_id", referencedColumnName="categorya_id")
+     * })
+     */
+    private $productCategorya;
+
+    /**
+     * @var \Application\Entity\EntityCategoryRemote
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityCategoryRemote")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_categoryr_id", referencedColumnName="categoryr_id")
+     * })
+     */
+    private $productCategoryr;
+
+
+}

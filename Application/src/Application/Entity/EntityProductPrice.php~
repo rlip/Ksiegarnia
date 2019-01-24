@@ -1,0 +1,67 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityProductPrice
+ *
+ * @ORM\Table(name="product_price", indexes={@ORM\Index(name="fk_product_supplier_price_product1_idx", columns={"productp_productl_id"}), @ORM\Index(name="fk_product_supplier_price_supplier1_idx", columns={"productp_supplier_id"})})
+ * @ORM\Entity
+ */
+class EntityProductPrice
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="productp_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $productpId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="productp_price", type="decimal", precision=6, scale=2, nullable=false)
+     */
+    private $productpPrice;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="productp_recently_changed", type="boolean", nullable=false)
+     */
+    private $productpRecentlyChanged;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="productp_last_update", type="datetime", nullable=false)
+     */
+    private $productpLastUpdate;
+
+    /**
+     * @var \Application\Entity\EntityProductList
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityProductList")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="productp_productl_id", referencedColumnName="productl_id")
+     * })
+     */
+    private $productpProductl;
+
+    /**
+     * @var \Application\Entity\EntitySupplier
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntitySupplier")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="productp_supplier_id", referencedColumnName="supplier_id")
+     * })
+     */
+    private $productpSupplier;
+
+
+}
+

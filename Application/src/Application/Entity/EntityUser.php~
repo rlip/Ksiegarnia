@@ -1,0 +1,54 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityUser
+ *
+ * @ORM\Table(name="user")
+ * @ORM\Entity
+ */
+class EntityUser
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="user_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $userId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_name", type="string", length=50, nullable=false)
+     */
+    private $userName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_password", type="string", length=32, nullable=false)
+     */
+    private $userPassword;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_salt", type="string", length=32, nullable=false)
+     */
+    private $userSalt;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="user_active", type="boolean", nullable=false)
+     */
+    private $userActive = '1';
+
+
+}
+

@@ -1,0 +1,32 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityPublisher
+ *
+ * @ORM\Table(name="publisher")
+ * @ORM\Entity
+ */
+class EntityPublisher
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="publisher_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $publisherId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="publisher_name", type="string", length=100, nullable=false)
+     */
+    private $publisherName;
+
+
+}

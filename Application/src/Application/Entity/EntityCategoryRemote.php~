@@ -1,0 +1,70 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityCategoryRemote
+ *
+ * @ORM\Table(name="category_remote", indexes={@ORM\Index(name="category_supplier_id", columns={"categoryr_supplier_id"}), @ORM\Index(name="catergoryr_categorya_id", columns={"catergoryr_categorya_id"}), @ORM\Index(name="categoryr_parent_id", columns={"categoryr_parent_id"})})
+ * @ORM\Entity
+ */
+class EntityCategoryRemote
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="categoryr_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $categoryrId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="categoryr_name", type="string", length=100, nullable=false)
+     */
+    private $categoryrName;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="categoryr_mapping_changed", type="boolean", nullable=false)
+     */
+    private $categoryrMappingChanged = '0';
+
+    /**
+     * @var \Application\Entity\EntitySupplier
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntitySupplier")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categoryr_supplier_id", referencedColumnName="supplier_id")
+     * })
+     */
+    private $categoryrSupplier;
+
+    /**
+     * @var \Application\Entity\EntityCategoryAllegro
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityCategoryAllegro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="catergoryr_categorya_id", referencedColumnName="categorya_id")
+     * })
+     */
+    private $catergoryrCategorya;
+
+    /**
+     * @var \Application\Entity\EntityCategoryRemote
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityCategoryRemote")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categoryr_parent_id", referencedColumnName="categoryr_id")
+     * })
+     */
+    private $categoryrParent;
+
+
+}
+

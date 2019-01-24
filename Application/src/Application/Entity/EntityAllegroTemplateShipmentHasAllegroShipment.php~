@@ -1,0 +1,67 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroTemplateShipmentHasAllegroShipment
+ *
+ * @ORM\Table(name="allegro_template_shipment_has_allegro_shipment", indexes={@ORM\Index(name="allegrotshas_allegrotsl_id", columns={"allegrotshas_allegrotsl_id"}), @ORM\Index(name="allegrotshas_allegros_id", columns={"allegrotshas_allegros_id"})})
+ * @ORM\Entity
+ */
+class EntityAllegroTemplateShipmentHasAllegroShipment
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegrotshas_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegrotshasId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegrotshas_fist_item", type="integer", nullable=false)
+     */
+    private $allegrotshasFistItem;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegrotshas_next_item", type="integer", nullable=false)
+     */
+    private $allegrotshasNextItem;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegrotshas_in_pack", type="integer", nullable=false)
+     */
+    private $allegrotshasInPack;
+
+    /**
+     * @var \Application\Entity\EntityAllegroShipment
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityAllegroShipment")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="allegrotshas_allegros_id", referencedColumnName="allegros_id")
+     * })
+     */
+    private $allegrotshasAllegros;
+
+    /**
+     * @var \Application\Entity\EntityAllegroTemplateShipmentList
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityAllegroTemplateShipmentList")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="allegrotshas_allegrotsl_id", referencedColumnName="allegrotsl_id")
+     * })
+     */
+    private $allegrotshasAllegrotsl;
+
+
+}
+

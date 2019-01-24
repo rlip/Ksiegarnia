@@ -1,0 +1,66 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityProductAvailable
+ *
+ * @ORM\Table(name="product_available", uniqueConstraints={@ORM\UniqueConstraint(name="producta_productl_id_producta_supplier_id", columns={"producta_productl_id", "producta_supplier_id"})}, indexes={@ORM\Index(name="fk_product_supplier_available_product1_idx", columns={"producta_productl_id"}), @ORM\Index(name="fk_product_supplier_available_supplier1_idx", columns={"producta_supplier_id"})})
+ * @ORM\Entity
+ */
+class EntityProductAvailable
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="producta_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $productaId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="producta_in_stock", type="integer", nullable=false)
+     */
+    private $productaInStock;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="producta_recently_changed", type="boolean", nullable=false)
+     */
+    private $productaRecentlyChanged;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="producta_last_update", type="datetime", nullable=false)
+     */
+    private $productaLastUpdate;
+
+    /**
+     * @var \Application\Entity\EntityProductList
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityProductList")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="producta_productl_id", referencedColumnName="productl_id")
+     * })
+     */
+    private $productaProductl;
+
+    /**
+     * @var \Application\Entity\EntitySupplier
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntitySupplier")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="producta_supplier_id", referencedColumnName="supplier_id")
+     * })
+     */
+    private $productaSupplier;
+
+
+}

@@ -1,0 +1,25 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Księgarnia2015</title>
+    <link href="<?php echo $this->basePath() ?>/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo $this->basePath() ?>/css/style.css" rel="stylesheet">
+    <?php echo $this->headScript()
+        ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+        ->prependFile($this->basePath() . '/js/jquery.min.js')
+    ?>
+</head>
+<body class="main-shining">
+<div class="container">
+    <?php echo $this->content; ?>
+    <footer>
+        <div id="powered">&copy; 2014 - <?php echo date('Y') ?>
+            Księgarnia2015. <?php echo $this->translate('All rights reserved.') ?></div>
+    </footer>
+</div>
+<?php echo $this->inlineScript() ?>
+</body>
+</html>

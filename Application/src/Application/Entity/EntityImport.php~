@@ -1,0 +1,105 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityImport
+ *
+ * @ORM\Table(name="import", uniqueConstraints={@ORM\UniqueConstraint(name="import_code", columns={"import_code"})}, indexes={@ORM\Index(name="fk_import_supplier_idx", columns={"import_supplier_id"})})
+ * @ORM\Entity
+ */
+class EntityImport
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="import_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $importId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="import_code", type="string", length=15, nullable=false)
+     */
+    private $importCode;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="import_interval", type="integer", nullable=false)
+     */
+    private $importInterval;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="import_last_update", type="datetime", nullable=false)
+     */
+    private $importLastUpdate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="import_remote_file", type="string", length=255, nullable=false)
+     */
+    private $importRemoteFile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="import_downloaded_file", type="string", length=100, nullable=false)
+     */
+    private $importDownloadedFile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="import_local_file", type="string", length=100, nullable=false)
+     */
+    private $importLocalFile;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="import_download_require", type="boolean", nullable=false)
+     */
+    private $importDownloadRequire;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="import_download_type", type="boolean", nullable=false)
+     */
+    private $importDownloadType;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="import_unpack_require", type="boolean", nullable=false)
+     */
+    private $importUnpackRequire;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="import_unpack_type", type="boolean", nullable=false)
+     */
+    private $importUnpackType;
+
+    /**
+     * @var \Application\Entity\EntitySupplier
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntitySupplier")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="import_supplier_id", referencedColumnName="supplier_id")
+     * })
+     */
+    private $importSupplier;
+
+
+}

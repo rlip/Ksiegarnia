@@ -1,0 +1,47 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroTemplateShipmentList
+ *
+ * @ORM\Table(name="allegro_template_shipment_list")
+ * @ORM\Entity
+ */
+class EntityAllegroTemplateShipmentList
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegrotsl_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegrotslId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegrotsl_value", type="text", length=65535, nullable=true)
+     */
+    private $allegrotslValue;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegrotsl_name", type="string", length=50, nullable=false)
+     */
+    private $allegrotslName;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="allegrotsl_is_default", type="boolean", nullable=false)
+     */
+    private $allegrotslIsDefault;
+
+
+}
+

@@ -1,0 +1,47 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroTemplateDesignList
+ *
+ * @ORM\Table(name="allegro_template_design_list")
+ * @ORM\Entity
+ */
+class EntityAllegroTemplateDesignList
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegrotdl_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegrotdlId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegrotdl_value", type="text", length=65535, nullable=true)
+     */
+    private $allegrotdlValue;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegrotdl_name", type="text", length=255, nullable=false)
+     */
+    private $allegrotdlName;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="allegrotdl_is_default", type="boolean", nullable=false)
+     */
+    private $allegrotdlIsDefault;
+
+
+}
+

@@ -1,0 +1,61 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroShipment
+ *
+ * @ORM\Table(name="allegro_shipment", uniqueConstraints={@ORM\UniqueConstraint(name="allegros_id_allegro", columns={"allegros_id_allegro"})})
+ * @ORM\Entity
+ */
+class EntityAllegroShipment
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegros_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegrosId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegros_id_allegro", type="integer", nullable=false)
+     */
+    private $allegrosIdAllegro;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegros_name", type="string", length=100, nullable=false)
+     */
+    private $allegrosName;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="allegros_type", type="boolean", nullable=false)
+     */
+    private $allegrosType;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegros_time_from", type="integer", nullable=false)
+     */
+    private $allegrosTimeFrom = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegros_time_to", type="integer", nullable=false)
+     */
+    private $allegrosTimeTo = '0';
+
+
+}
+

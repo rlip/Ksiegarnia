@@ -1,0 +1,42 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityCategoryAllegro
+ *
+ * @ORM\Table(name="category_allegro", indexes={@ORM\Index(name="categorya_parent_id", columns={"categorya_parent_id"})})
+ * @ORM\Entity
+ */
+class EntityCategoryAllegro
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="categorya_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $categoryaId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="categorya_name", type="string", length=100, nullable=false)
+     */
+    private $categoryaName;
+
+    /**
+     * @var \Application\Entity\EntityCategoryAllegro
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityCategoryAllegro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categorya_parent_id", referencedColumnName="categorya_id")
+     * })
+     */
+    private $categoryaParent;
+
+
+}

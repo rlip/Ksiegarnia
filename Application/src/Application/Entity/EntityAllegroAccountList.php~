@@ -1,0 +1,40 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroAccountList
+ *
+ * @ORM\Table(name="allegro_account_list")
+ * @ORM\Entity
+ */
+class EntityAllegroAccountList
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegroal_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegroalId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegroal_login", type="string", length=50, nullable=false)
+     */
+    private $allegroalLogin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegroal_password", type="string", length=50, nullable=false)
+     */
+    private $allegroalPassword;
+
+
+}
+

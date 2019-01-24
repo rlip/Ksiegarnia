@@ -1,0 +1,89 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroTemplateDesign
+ *
+ * @ORM\Table(name="allegro_template_design")
+ * @ORM\Entity(repositoryClass="Application\Entity\Repository\RepositoryAllegroTemplateDesign")
+ */
+class EntityAllegroTemplateDesign extends \Application\Entity\EntityAbstract
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegrotd_id", type="integer", precision=0, scale=0, nullable=false, unique=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegrotdId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegrotd_name", type="text", length=50, precision=0, scale=0, nullable=false, unique=false)
+     */
+    private $allegrotdName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegrotd_value", type="text", length=65535, precision=0, scale=0, nullable=false, unique=false)
+     */
+    private $allegrotdValue;
+
+
+    /**
+     * Get allegrotdId
+     *
+     * @return integer
+     */
+    public function getAllegrotdId()
+    {
+        return $this->allegrotdId;
+    }
+
+    /**
+     * Set allegrotdValue
+     *
+     * @param string $allegrotdValue
+     *
+     * @return EntityAllegroTemplateDesign
+     */
+    public function setAllegrotdValue($allegrotdValue)
+    {
+        $this->allegrotdValue = $allegrotdValue;
+
+        return $this;
+    }
+
+    /**
+     * Get allegrotdValue
+     *
+     * @return string
+     */
+    public function getAllegrotdValue()
+    {
+        return $this->allegrotdValue;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAllegrotdName()
+    {
+        return $this->allegrotdName;
+    }
+
+    /**
+     * @param string $allegrotdName
+     */
+    public function setAllegrotdName($allegrotdName)
+    {
+        $this->allegrotdName = $allegrotdName;
+    }
+}
+

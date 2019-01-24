@@ -1,0 +1,100 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityCategoryMapping
+ *
+ * @ORM\Table(name="category_mapping", indexes={@ORM\Index(name="catygorym_categoryr_id", columns={"catygorym_categoryr_id"}), @ORM\Index(name="categorym_categorya_id", columns={"categorym_categorya_id"})})
+ * @ORM\Entity
+ */
+class EntityCategoryMapping extends \Application\Entity\EntityAbstract
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="categorym_id", type="integer", precision=0, scale=0, nullable=false, unique=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $categorymId;
+
+    /**
+     * @var \Application\Entity\EntityCategoryRemote
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityCategoryRemote")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="catygorym_categoryr_id", referencedColumnName="categoryr_id", nullable=true)
+     * })
+     */
+    private $catygorymCategoryr;
+
+    /**
+     * @var \Application\Entity\EntityCategoryAllegro
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityCategoryAllegro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categorym_categorya_id", referencedColumnName="categorya_id", nullable=true)
+     * })
+     */
+    private $categorymCategorya;
+
+
+    /**
+     * Get categorymId
+     *
+     * @return integer 
+     */
+    public function getCategorymId()
+    {
+        return $this->categorymId;
+    }
+
+    /**
+     * Set catygorymCategoryr
+     *
+     * @param \Application\Entity\EntityCategoryRemote $catygorymCategoryr
+     * @return EntityCategoryMapping
+     */
+    public function setCatygorymCategoryr(\Application\Entity\EntityCategoryRemote $catygorymCategoryr = null)
+    {
+        $this->catygorymCategoryr = $catygorymCategoryr;
+
+        return $this;
+    }
+
+    /**
+     * Get catygorymCategoryr
+     *
+     * @return \Application\Entity\EntityCategoryRemote 
+     */
+    public function getCatygorymCategoryr()
+    {
+        return $this->catygorymCategoryr;
+    }
+
+    /**
+     * Set categorymCategorya
+     *
+     * @param \Application\Entity\EntityCategoryAllegro $categorymCategorya
+     * @return EntityCategoryMapping
+     */
+    public function setCategorymCategorya(\Application\Entity\EntityCategoryAllegro $categorymCategorya = null)
+    {
+        $this->categorymCategorya = $categorymCategorya;
+
+        return $this;
+    }
+
+    /**
+     * Get categorymCategorya
+     *
+     * @return \Application\Entity\EntityCategoryAllegro 
+     */
+    public function getCategorymCategorya()
+    {
+        return $this->categorymCategorya;
+    }
+}

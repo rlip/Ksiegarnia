@@ -1,0 +1,26 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroAuctionDefinition
+ *
+ * @ORM\Table(name="allegro_auction_definition")
+ * @ORM\Entity
+ */
+class EntityAllegroAuctionDefinition
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegroad_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegroadId;
+
+
+}
+

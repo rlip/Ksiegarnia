@@ -1,0 +1,46 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroTemplateShipmentCategory
+ *
+ * @ORM\Table(name="allegro_template_shipment_category", indexes={@ORM\Index(name="allegrotsc_categorya_id", columns={"allegrotsc_categorya_id"}), @ORM\Index(name="allegrotsc_allegrotdl_id", columns={"allegrotsc_allegrotsl_id"})})
+ * @ORM\Entity
+ */
+class EntityAllegroTemplateShipmentCategory
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegrotsc_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegrotscId;
+
+    /**
+     * @var \Application\Entity\EntityCategoryAllegro
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityCategoryAllegro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="allegrotsc_categorya_id", referencedColumnName="categorya_id")
+     * })
+     */
+    private $allegrotscCategorya;
+
+    /**
+     * @var \Application\Entity\EntityAllegroTemplateDesignList
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityAllegroTemplateDesignList")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="allegrotsc_allegrotsl_id", referencedColumnName="allegrotdl_id")
+     * })
+     */
+    private $allegrotscAllegrotsl;
+
+
+}
+

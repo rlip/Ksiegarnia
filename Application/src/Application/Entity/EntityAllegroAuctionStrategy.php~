@@ -1,0 +1,47 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroAuctionStrategy
+ *
+ * @ORM\Table(name="allegro_auction_strategy", uniqueConstraints={@ORM\UniqueConstraint(name="allegroas_key", columns={"allegroas_key"})})
+ * @ORM\Entity
+ */
+class EntityAllegroAuctionStrategy
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegroas_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegroasId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegroas_name", type="string", length=50, nullable=false)
+     */
+    private $allegroasName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allegroas_key", type="string", length=20, nullable=false)
+     */
+    private $allegroasKey;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="allegroas_is_on", type="boolean", nullable=false)
+     */
+    private $allegroasIsOn;
+
+
+}
+

@@ -1,0 +1,43 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EntityAllegroAuctionList
+ *
+ * @ORM\Table(name="allegro_auction_list", indexes={@ORM\Index(name="allegroal_productl_id", columns={"allegroal_productl_id"})})
+ * @ORM\Entity
+ */
+class EntityAllegroAuctionList
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="allegroal_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $allegroalId;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="allegroal_is_active", type="boolean", nullable=false)
+     */
+    private $allegroalIsActive = '1';
+
+    /**
+     * @var \Application\Entity\EntityProductList
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\EntityProductList")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="allegroal_productl_id", referencedColumnName="productl_id")
+     * })
+     */
+    private $allegroalProductl;
+
+
+}
+
